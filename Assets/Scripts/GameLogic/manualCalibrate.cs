@@ -93,6 +93,8 @@ public class manualCalibrate : MonoBehaviour {
 		// get players
 		players = GameObject.FindGameObjectsWithTag("Player");
 		dropped = new int[players.Length];
+
+		PlayerPrefs.SetInt("trialNumber",0);
 		}
 
 
@@ -168,7 +170,7 @@ public class manualCalibrate : MonoBehaviour {
 
 					if (Input.GetKeyDown("s"))
 					{
-						SceneManager.LoadScene("TableActive");
+						SceneManager.LoadScene("ITI");
 
 						//plstream.conThread.Abort();
 

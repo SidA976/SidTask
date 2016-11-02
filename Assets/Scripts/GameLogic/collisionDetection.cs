@@ -16,6 +16,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class collisionDetection : MonoBehaviour {
 
@@ -46,6 +47,8 @@ public class collisionDetection : MonoBehaviour {
 
 		if(hitObstacle== true)
 		{
+			SceneManager.LoadScene("ITI");
+
 			renderer.color = new Color(0f,0f,0f, .5f);
 		} else {
 			renderer.color = defColor;

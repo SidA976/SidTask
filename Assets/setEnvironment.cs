@@ -11,12 +11,16 @@ public class setEnvironment : MonoBehaviour {
 	public float leftwallY;
 	public float rightwallY;
 	public float midwallY;
-	//public float discChange;
+	//zapublic float discChange;
 
-	public float leftYchange;
-	public float midYchange;
-	public float rightYchange;
+	public float leftYsize;
+	public float midYsize;
+	public float rightYsize;
+	public int changeDisc;
 
+	public float discChangey;
+	public float discChangex;
+	public int trialNumber;
 	public List<string> trialNumberList = new List<string>();
 	public List<string> changeDiscList =  new List<string>();
 	public List<string> leftWallList =  new List<string>();
@@ -28,6 +32,7 @@ public class setEnvironment : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
+		trialNumber = PlayerPrefs.GetInt ("trialNumber"); // get the trial number
 		string iniFileame = "trialData.txt";
 		string [] lines = File.ReadAllLines (iniFileame);
 
@@ -39,6 +44,15 @@ public class setEnvironment : MonoBehaviour {
 			leftWallList.Add (values [2]);
 			midWallList.Add (values [3]);
 			rightWallList.Add (values [4]);
+		}
+
+
+			leftYsize = float.Parse(leftWallList[trialNumber]);
+			midYsize = float.Parse(midWallList[trialNumber]);
+			rightYsize = float.Parse(rightWallList[trialNumber]);
+			changeDisc = int.Parse(changeDiscList[trialNumber]);
+
+
 
 
 
@@ -49,11 +63,14 @@ public class setEnvironment : MonoBehaviour {
 			rightwallY = GameObject.Find ("right.Wall").GetComponent<Transform> ().localScale.y;
 
 			//do we need to grab the disc in order for changeDiscList to work?
-			//discChange = GameObject.Find("Object1").GetComponent<Transform>().localScale.??
+			discChangey = GameObject.Find("Object1").GetComponent<Transform>().localScale.y;
+			discChangex = GameObject.Find("Object1").GetComponent<Transform>().localScale.x;
 
-
-		}
-		//leftwall.GetComponent<Transform>.
+		GameObject leftwall = GameObject.Find("left.Wall");
+		GameObject midwall = GameObject.Find ("mid.Wall");
+		GameObject rightwall = GameObject.Find ("right.Wall");
+		 
+		leftwall.gameObject.transform.localScale = new Vector3(5f, leftYsize, 5f);
 	}
 
 	// read in lines of trial data info; sets up environment:
@@ -67,9 +84,6 @@ public class setEnvironment : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		leftwallY = leftYchange;
-		midwallY = midYchange;
-		rightwallY = rightYchange;
-
+		
 	}
 }

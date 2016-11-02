@@ -40,7 +40,7 @@ public class Sensors2Players : MonoBehaviour {
 
 				
 		//players = GameObject.FindGameObjectsWithTag("Player");
-		players = GameObject.FindGameObjectsWithTag("object");
+		players = GameObject.FindGameObjectsWithTag("Player");
 		dropped = new int[players.Length];
 
 	}

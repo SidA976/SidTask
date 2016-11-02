@@ -29,7 +29,7 @@ public class changeEnabler : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		ChangeOn = int.Parse(Object1.GetComponent<setEnvironment>().changeDiscList[trialNumber]);
+		ChangeOn = Object1.GetComponent<setEnvironment>().changeDisc;
 
 		if (ChangeOn == 1) {
 			Object1.GetComponent<ChangeDiscSize> ().enabled = true;

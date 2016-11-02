@@ -29,7 +29,7 @@ public class goalTrigger : MonoBehaviour {
 	// Use this for initialization
 	public int OnTriggerEnter ( Collider gTrigger ) {
 
-		if (gTrigger.gameObject.tag == "object"){
+		if (gTrigger.gameObject.tag == "Player"){
 
 			colObjectName = gTrigger.gameObject.name;
 
